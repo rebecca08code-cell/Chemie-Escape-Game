@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon", type="image / svg+xml", href="favicon.svg">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="chemie.css">
+		<script src="chemie.js" defer></script>
+		<title>
+		</title>
+	</head>
+
+	<body ontouchstart="">
+	
+	<div id="start-screen">
+		<svg class="dots-start" viewBox="0 0 400 300">
+                <pattern id="p" width="5" height="5" patternUnits="userSpaceOnUse">
+                    <rect width="5" height="5" fill="transparent" stroke="transparent"/>
+                    <circle cx="2" cy="2" r="1" opacity="80%"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#p)"/>
+            </svg>
+		<h1>!!ESCAPE!!</h1>
+		<div class="theme-switch">
+			<button id="start-btn" class="costum-button">PLAY</button>
+			<button id="rules-btn" class="costum-button">RULES</button>
+			<button id="settings-btn" class="costum-button">SETTINGS</button>
+		</div>
+	</div>
+	
+	<div id="game-screen" class="hidden">
+		<!--<h2 class="title-two">Das Spiel läuft!</h2>
+		<div id="quadrat"></div>
+		<div id="ziel-zone"></div>
+		<button class="back-btn">X</button>-->
+		<div class="intro-container" id="intro-container">
+			<button class="btn-hidden intro-btn" id="naritiv-btn"></button>
+			<button class="btn-hidden intro-btn" id="story-btn"></button>
+			<div class="intro-viewport">
+				<div class="intro-scenes" id="intro-scenes">
+				
+					<div class="intro intro-scene-one">
+						<div class="interactiv-area">
+							<div id="dialoge-screen-one">
+        						<div class="textbox">
+            					<div class="speaker-name" id="speaker-one">Erzähler</div>
+            						<span id="dialogue-text-one"></span><span class="cursor"></span>
+        						</div>
+    						</div>
+							<img class="background" id="scene-one" src="images\Scene1.png">
+						</div>
+					</div>
+					
+					<div class="intro intro-scene-two">
+						<div class="interactiv-area">
+							<div id="dialoge-screen-two">
+        						<div class="textbox">
+            					<div class="speaker-name" id="speaker-two">Erzähler</div>
+            						<span id="dialogue-text-two"></span><span class="cursor"></span>
+        						</div>
+    						</div>
+							<img class="background" id="scene-two" src="images\Scene2.png">
+							<img class="hidden-prop" id="envelope-closed" src="images\UmschlagZu.png">
+							<img class="hidden-prop" id="envelope-open" src="images\UmschlagOffen.png">
+							<img class="hidden-prop" id="letter" src="images\Brief.png">
+						</div>
+					</div>
+					
+					<div class="intro intro-scene-three">
+						<div class="interactiv-area">
+							<div id="dialoge-screen-three">
+        						<div class="textbox">
+            					<div class="speaker-name" id="speaker-three">Erzähler</div>
+            						<span id="dialogue-text-three"></span><span class="cursor"></span>
+        						</div>
+    						</div>
+						</div>
+					</div>
+					<div class="intro intro-scene-four">
+						<div class="interactiv-area">
+							<div id="dialoge-screen-four">
+        						<div class="textbox">
+            					<div class="speaker-name" id="speaker-four">Erzähler</div>
+            						<span id="dialogue-text-four"></span><span class="cursor"></span>
+        						</div>
+    						</div>
+							<img class="background" id="scene-four" src="images/Scene4.png">
+						</div>
+					</div>
+					<div class="intro intro-scene-five">
+						<div class="interactiv-area">
+							<div id="dialoge-screen-five">
+        						<div class="textbox">
+            					<div class="speaker-name" id="speaker-five">Erzähler</div>
+            						<span id="dialogue-text-five"></span><span class="cursor"></span>
+        						</div>
+    						</div>
+							<img class="background" id="scene-five" src="images\Scene5.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="room-hidden room-container" id="room-container">
+			<div class="interactiv-dialoge-area">
+				<div id="dialoge-screen-six">
+        			<div class="textbox">
+            		<div class="speaker-name" id="speaker-six">Erzähler</div>
+            			<span id="dialogue-text-six"></span><span class="cursor"></span>
+        			</div>
+    			</div>
+			</div>
+			<button class="arrow arrow-left" id="left-btn">&#10094;</button>
+			<button class="arrow arrow-right" id="right-btn">&#10095;</button>
+			<button class="hide-north-down-btn arrow-down" id="north-down-btn">&#10094;</button>
+			<button class="hide-east-down-btn arrow-down" id="east-down-btn">&#10094;</button>
+			<button class="hide-south-down-btn arrow-down" id="south-down-btn">&#10094;</button>
+			<button class="hide-west-down-btn arrow-down" id="west-down-btn">&#10094;</button>
+
+			<div class="room-viewport">
+				
+				<div class="room-walls" id="room-walls">
+
+		<!--North Wall-->
+					<div class="wall wall-north">
+						<div class="interactiv-area">
+							<button class="buttons-north" id="final-code"></button>
+							<div class="quiz quiz-hidden" id="final-code-wall">
+									<img class="room" src="images/Wall.png">
+									<div class="display-screen" id="display-screen-fc"></div>
+									<div class="btn-row-one-fc">
+										<button class="code-btn" id="btn-1-fc">1</button>
+										<button class="code-btn" id="btn-2-fc">2</button>
+										<button class="code-btn" id="btn-3-fc">3</button>
+									</div>
+									<div class="btn-row-two-fc">
+										<button class="code-btn" id="btn-4-fc">4</button>
+										<button class="code-btn" id="btn-5-fc">5</button>
+										<button class="code-btn" id="btn-6-fc">6</button>
+									</div>
+									<div class="btn-row-three-fc">
+										<button class="code-btn" id="btn-7-fc">7</button>
+										<button class="code-btn" id="btn-8-fc">8</button>
+										<button class="code-btn" id="btn-9-fc">9</button>
+									</div>
+									<div class="btn-row-four-fc">
+										<button class="code-wrong" id="btn-X-fc">X</button>
+										<button class="code-btn" id="btn-0-fc">0</button>
+										<button class="code-right" id="btn-check-fc">&#10003;</button>
+									</div>
+							</div>
+
+							<button class="buttons-north" id="shelf-A"></button>
+							<div class="quiz quiz-hidden" id="shelf-A-wall">
+								<div  class="touch-quiz" id="shelf-A-closed">
+									<div class="display-screen-sA" id="display-screen-shelf"></div>
+									<div class="btn-row-one-shelf">
+										<button class="code-btn-sA" id="btn-1-shelf">1</button>
+										<button class="code-btn-sA" id="btn-2-shelf">2</button>
+										<button class="code-btn-sA" id="btn-3-shelf">3</button>
+									</div>
+									<div class="btn-row-two-shelf">
+										<button class="code-btn-sA" id="btn-4-shelf">4</button>
+										<button class="code-btn-sA" id="btn-5-shelf">5</button>
+										<button class="code-btn-sA" id="btn-6-shelf">6</button>
+									</div>
+									<div class="btn-row-three-shelf">
+										<button class="code-btn-sA" id="btn-7-shelf">7</button>
+										<button class="code-btn-sA" id="btn-8-shelf">8</button>
+										<button class="code-btn-sA" id="btn-9-shelf">9</button>
+									</div>
+									<div class="btn-row-four-shelf">
+										<button class="code-wrong-sA" id="btn-X-shelf">X</button>
+										<button class="code-btn-sA" id="btn-0-shelf">0</button>
+										<button class="code-right-sA" id="btn-check-shelf">&#10003;</button>
+									</div>
+									<img class="room" alt="shelf A closed" src="images/shelf-A-closed.png">
+								</div>
+								<div class="touch-quiz hide-open-quiz" id="shelf-A-open">
+									<img class="room" alt="shelf A open" src="images/shelf-A-closed.png">
+									<div class="shelf-A-dark"></div>
+									<div class="shelf-temperaturen">
+										<p class="temperaturen" id="temperature-one">-12°C</p>
+										<p class="temperaturen" id="temperature-two">-6°C</p>
+										<p class="temperaturen" id="temperature-three">-0.5°C</p>
+										<p class="temperaturen" id="temperature-four">8°C</p>
+										<p class="temperaturen" id="temperature-five">99°C</p>
+										<p class="temperaturen" id="temperature-six">117°C</p>
+									</div>
+									<div class="ziel-zone shelf-container" data-match="1" id="shelf-one"></div>
+									<div class="ziel-zone shelf-container" data-match="2" id="shelf-two"></div>
+									<div class="ziel-zone shelf-container" data-match="3" id="shelf-three"></div>
+									<div class="ziel-zone shelf-container" data-match="4" id="shelf-four"></div>
+									<div class="ziel-zone shelf-container" data-match="5" id="shelf-five"></div>
+									<div class="ziel-zone shelf-container" data-match="6" id="shelf-six"></div>
+
+									<div class="siedetemperatur quadrat" data-match="3" id="n-Butan">n-Butan</div>
+									<div class="siedetemperatur quadrat" data-match="4" id="But-1-in">But-1-in</div>
+									<div class="siedetemperatur quadrat" data-match="5" id="Butan-2-ol">Butan-2-ol</div>
+									<div class="siedetemperatur quadrat" data-match="1" id="2-Methylpropan">2-Methylpropan</div>
+									<div class="siedetemperatur quadrat" data-match="6" id="Butan-1-ol">Butan-1-ol</div>
+									<div class="siedetemperatur quadrat" data-match="2" id="But-1-en">But-1-en</div>
+								</div>
+							</div>
+							<button class="buttons-north" id="shelf-B"></button>
+							<div class="quiz quiz-hidden" id="shelf-B-wall">
+								<img class="touch-quiz" id="shelf-B-closed" alt="shelf B closed" src="images/shelf-B-closed.png">
+								<div class="touch-quiz hide-open-quiz" id="shelf-B-open">
+									<img class="room" alt="shelf B open" src="images/shelf-B-closed.png">
+									<div class="shelf-B-dark"></div>
+									
+									<div class="reaktionsgleichungen" id="reaktionsgleichungen-one">
+										<div class="rg-part-one">
+											<div class="rg-progress" id="rg-progress-one"></div>
+											<input class="rg-input" type="text" id="rg-one-one">
+											<div>2,2-Dimenthylpentan +</div>
+											<input class="rg-input" type="text" id="rg-one-two">
+											<div>O₂ &#8594;</div>
+										</div>
+										<div class="rg-part-two">
+											<input class="rg-input" type="text" id="rg-one-three">
+											<div>CO₂ +</div>
+											<input class="rg-input" type="text" id="rg-one-four">
+											<div>H₂O</div>
+										</div>
+										<input type="button" value="Submit" class="rg-submit"  id="rg-submit-one">
+									</div>
+									<div class="reaktionsgleichungen" id="reaktionsgleichungen-two">
+										<div class="rg-part-one">
+											<div class="rg-progress" id="rg-progress-two"></div>
+											<input class="rg-input" type="text" id="rg-two-one">
+											<div>C₂H₁₂O₆ &#8594;</div>
+										</div>
+										<div class="rg-part-two">
+											<input class="rg-input" type="text" id="rg-two-two">
+											<div>Ethanol +</div>
+											<input class="rg-input" type="text" id="rg-two-three">
+											<div>CO₂</div>
+										</div>
+										<input type="button" value="Submit" class="rg-submit"  id="rg-submit-two">
+									</div>
+									<div class="reaktionsgleichungen" id="reaktionsgleichungen-three">
+										<div class="rg-part-one">
+											<div class="rg-progress" id="rg-progress-three"></div>
+											<input class="rg-input" type="text" id="rg-three-one">
+											<div>C₈H₁₈ +</div>
+											<input class="rg-input" type="text" id="rg-three-two">
+											<div>O₂ &#8594;</div>
+										</div>
+										<div class="rg-part-two">
+											<input class="rg-input" type="text" id="rg-three-three">
+											<div>CO₂ +</div>
+											<input class="rg-input" type="text" id="rg-three-four">
+											<div>H₂O</div>
+										</div>
+										<input type="button" value="Submit" class="rg-submit"  id="rg-submit-three">
+										
+									</div>
+									<button class="rg-btns" id="rg-info-btn">i</button>
+									<div class="hidden rg-info" id="rg-info">Leere Felder mit "-" beschriften!</div>
+									<button class="hidden rg-back-btn" id="rg-back-btn">X</button>
+								</div>
+							</div>
+							<button class="buttons-north" id="book"></button>
+							<div class="quiz quiz-hidden" id="book-wall">
+								<img class="room" src="images/Wall.png">
+								<img class="touch-quiz" id="book-open" alt="book open" src="images/book.png">
+								<div class="Eintrag-one">
+									<p>14.Oktober 2017</p>
+									<p>Subject #04-B: "Der Leuchtende Haufen"</p>
+									<p>Es hätte so schön sein können. Ein simpler Katalysator, ein Schuss hypertrophen Salzes, eine Prise meines eigens destillierten Kupfer-Bariums und schwupps, die Weltherrschaft im Reagenzglas.
+										Aber nein. Subject #04-B hat heute Nacht um 03:15 Uhr beschlossen, ein Bewusstsein zu entwickeln, statt sich brav in violetten Rauch aufzulösen.
+										Ich hatte es im Becherglas, als es anfing, leise zu kichern. Chemikalien kichern nicht. Es sei denn, man hat die Schwefelsäure mit vergangenem Milchshake verwechselt (was ich natürlich nicht getan habe!). Ich beugte mich also vor, Klemmbrett in der Hand, bereit, den historischen Durchbruch zu notieren und was macht Subject #04-B? Es wächst. Es wächst nicht nur, es bildet pseudopodiartige, schleimige Arme aus, schlägt mir das Klemmbrett aus der Hand und frisst meine halbe Schreibtischlampe.
+										Fazit: Der Versuch ist gescheitert. Das Labor stinkt nach verbranntem Karamell. Subject #04-B hat sich erfolgreich im Lüftungsschacht verkrochen, und ich trage jetzt Pantoffeln, deren Sohlen schmelzen.
+										Morgen besorge ich mir eine Schutzbrille mit integriertem Flammenwerfer.</p>
+								</div>
+								<div class="book-quiz">
+									<p class="book-quiz-one">Naja. Wenigstens hat heute endlich der Elektriker den Weg durch mein Labyrinth gefunden, um den Hauptgenerator zu flicken. Ein äußerst kompetenter Mann.
+									Als kleines Extra hat er mir sogar ein Sicherheits-Passwort in das System programmiert. Ein absolutes Meisterwerk der Verschlüsselung, das kein Sterblicher je knacken wird.
+									Ich schreibe mir hier nur ganz kurz eine Errinerung auf, damit ich es im Eifer des Gefechts nicht wieder vergesse:</p>
+									<p class="book-quiz-two">C-Atome von Pentan + Valenzelktronen von C x Siedetemperatur von Wasser x Anzahl der besetzen Energiestufen von Iod</p>
+								</div>
+							</div>
+							<img class="room" id="north-wall" src="images\Wall-North.png">
+						</div>
+					</div>
+
+		<!--East Wall-->
+					<div class="wall wall-east">
+						<div class="interactiv-area">
+							<button class="buttons-east" id="data-sheet"></button>
+							<div class="quiz quiz-hidden" id="data-sheet-wall">
+								<img class="touch-quiz" id="data open" alt="data open" src="images/dataSheet.png">
+							</div>
+							<button class="buttons-east" id="maze"></button>
+							<div class="quiz quiz-hidden" id="maze-wall">
+								<div  class="touch-quiz" id="maze-closed">
+									<img class="room" alt="maze closed" src="images/mazeClosed.png">
+								</div>
+								<div class="touch-quiz hide-open-quiz" id="maze-open">
+									<img class="room" id="maze-frame" alt="maze open" src="images/mazeOpen.png">
+									<div id="maze-guy"></div>
+									<div class="maze-btns" id="maze-one">
+										<button class="maze-btn" id="maze-one-one">Hexan</button>
+										<button class="maze-btn" id="maze-one-two">Octan</button>
+										<button class="maze-btn" id="maze-one-three">2-Methylhexan</button>
+										<button class="maze-btn" id="maze-one-four">1-Hepten</button>
+									</div>
+									<div class="hidden maze-btns" id="maze-two">
+										<button class="maze-btn" id="maze-two-one">Cyclopentan</button>
+										<button class="maze-btn" id="maze-two-two">3-Methylhexan</button>
+										<button class="maze-btn" id="maze-two-three">Methylcyclohexan</button>
+										<button class="maze-btn" id="maze-two-four">1-Heptin</button>
+									</div>
+									<div class="hidden maze-btns" id="maze-three">
+										<button class="maze-btn" id="maze-three-one">2,2-Dimenthylhexan</button>
+										<button class="maze-btn" id="maze-three-two">2-Methylpentan</button>
+										<button class="maze-btn" id="maze-three-three">2,3-Dimethylpentan</button>
+										<button class="maze-btn" id="maze-three-four">1,2-Dimenthylcyclopentan</button>
+									</div>
+									<div class="hidden maze-btns" id="maze-four">
+										<button class="maze-btn" id="maze-four-one">3-Ethylpentan</button>
+										<button class="maze-btn" id="maze-four-two">2-Ethylpentan</button>
+										<button class="maze-btn" id="maze-four-three">1-Menthylhexan</button>
+										<button class="maze-btn" id="maze-four-four">2,2,2-Trimentylbutan</button>
+									</div>
+									<div class="hidden maze-btns" id="maze-five">
+										<button class="maze-btn" id="maze-five-one">Isopropylcyclobutan</button>
+										<button class="maze-btn" id="maze-five-two">2,2,3-Trimenthylbutan</button>
+										<button class="maze-btn" id="maze-five-three">2,2,3,3-Tetramethylbutan</button>
+										<button class="maze-btn" id="maze-five-four">3,3-Dimethylbutan</button>
+									</div>
+									<!--<div class="hidden maze-btns" id="maze-six">
+										<button class="maze-btn" id="maze-six-one"></button>
+										<button class="maze-btn" id="maze-six-two"></button>
+										<button class="maze-btn" id="maze-six-three"></button>
+										<button class="maze-btn" id="maze-six-four"></button>
+									</div>
+									<div class="hidden maze-btns" id="maze-seven">
+										<button class="maze-btn" id="maze-seven-one"></button>
+										<button class="maze-btn" id="maze-seven-two"></button>
+										<button class="maze-btn" id="maze-seven-three"></button>
+										<button class="maze-btn" id="maze-seven-four"></button>
+									</div>
+									<div class="hidden maze-btns" id="maze-eight">
+										<button class="maze-btn" id="maze-eight-one"></button>
+										<button class="maze-btn" id="maze-eight-two"></button>
+										<button class="maze-btn" id="maze-eight-three"></button>
+										<button class="maze-btn" id="maze-eight-four"></button>
+									</div>
+									<div class="hidden maze-btns" id="maze-nine">
+										<button class="maze-btn" id="maze-nine-one"></button>
+										<button class="maze-btn" id="maze-nine-two"></button>
+										<button class="maze-btn" id="maze-nine-three"></button>
+										<button class="maze-btn" id="maze-nine-four"></button>
+									</div>
+									<div class="hidden maze-btns" id="maze-ten">
+										<button class="maze-btn" id="maze-ten-one"></button>
+										<button class="maze-btn" id="maze-ten-two"></button>
+										<button class="maze-btn" id="maze-ten-three"></button>
+										<button class="maze-btn" id="maze-ten-four"></button>
+									</div>-->
+								</div>
+							</div>
+							<button class="buttons-east" id="solubility"></button>
+							<div class="quiz quiz-hidden" id="solubility-wall">
+								<img class="touch-quiz" id="wall-closed" alt="wall closed" src="images/wallClosed.png">
+								<div class="touch-quiz hide-open-quiz" id="wall-open">
+									<img class="room" alt="wall open" src="images/wallOpen.png">
+									<div class="ziel-zone wall-container" data-match="1" id="zz-wall-one"></div>
+									<div class="ziel-zone wall-container" data-match="2" id="zz-wall-two"></div>
+									<div class="ziel-zone wall-container" data-match="2" id="zz-wall-three"></div>
+									<div class="ziel-zone wall-container" data-match="3" id="zz-wall-four"></div>
+									<div class="ziel-zone wall-container" data-match="2" id="zz-wall-five"></div>
+									<div class="ziel-zone wall-container" data-match="4" id="zz-wall-six"></div>
+
+									<div class="mols quadrat" data-match="2" id="Wasser-three">Wasser</div>
+									<div class="mols quadrat" data-match="1" id="n-Hexan">n-Hexan</div>
+									<div class="mols quadrat" data-match="2" id="Wasser-one">Wasser</div>
+									<div class="mols quadrat" data-match="3" id="Glycerin">Propan-1,2,3-triol</div>
+									<div class="mols quadrat" data-match="4" id="Dichlormethan">Dichlormethan</div>
+									<div class="mols quadrat" data-match="2" id="Wasser-two">Wasser</div>
+									<button class="glas-btns" id="glas-one-btn">i</button>
+									<button class="glas-btns" id="glas-two-btn">i</button>
+									<button class="glas-btns" id="glas-three-btn">i</button>
+									<button class="glas-btns" id="glas-bw-btn">i</button>
+									<button class="hidden" id="s-back-btn">X</button>
+									<div class="hidden glas-info" id="glas-info-one">
+										Nach kräftigem Schütteln tritt eine kurzzeitige Trübung auf. Nach dem Absetzen stellen sich wieder zwei klar getrennte Phasen ein. Nach Zugabe von Bromwasser und Durchmischung reichert sich die bräunlich-orange Färbung vollständig in der oberen Phase an. Die untere Phase liegt wieder farblos vor.
+									</div>
+									<div class="hidden glas-info" id="glas-info-two">
+										Nach kräftigem Schütteln löst sich die Phasengrenze vollständig auf. Es bildet sich eine einzige, homogene und leicht viskose Lösung. Nach Zugabe von Bromwasser stellt sich in der gesamten homogenen Lösung eine gleichmäßige, hellorange Färbung ein. Eine Phasentrennung findet nicht statt.
+									</div>
+									<div class="hidden glas-info" id="glas-info-three">
+										Nach dem Schütteln entmischt sich das System rasch. Zwei klar voneinander getrennte Phasen bleiben bestehen. Nach Zugabe von Bromwasser und Durchmischung reichert sich die bräunlich-orange Färbung vollständig in der unteren Phase an. Die obere Phase liegt wieder farblos vor.
+									</div>
+									<div class="hidden glas-info" id="glas-info-bw">
+										Bromwasser
+									</div>
+								</div>
+							</div>
+							<img class="room" id="east-wall" src="images\Wall-East.png">
+							<img class="hidden room" id="east-wall-two" src="images/Wall-East-Two.png">
+							<img class="hidden room" id="east-wall-three" src="images/Wall-East-Three.png">
+						</div>
+					</div>
+
+		<!--South Wall-->
+					<div class="wall wall-south">
+						<div class="interactiv-area">
+							<button class="buttons-south" id="yes-no"></button>
+							<div class="quiz quiz-hidden" id="yes-no-wall">
+								<div class="touch-quiz" id="guy-cabin-closed">
+									<img class="room" alt="guy cabin closed" src="images/Guy-cabin-closed.png">
+								</div>
+								<div class="touch-quiz hide-open-quiz" id="guy-cabin-open">
+									<img id="gc-img-open" src="images/Guy-cabin.png">
+									<div id="gc-frame">
+										<div class="gc-questions" id="gc-question-one">
+											<div class="gc-buttons">
+												<button class="gc-button" id="gc-button-yes-one">&#10003;</button>
+												<button class="gc-button" id="gc-button-no-one">X</button>
+											</div>
+											<p class="gc-question">Bei Raumtemperatur sind alle unverzweigten Alkane von Methan bis Hexadecan gasförmig.</p>
+											<p class="gc-progress">1/5</p>
+										</div>
+										<div class="gc-questions hide-gc-questions" id="gc-question-two">
+											<div class="gc-buttons">
+												<button class="gc-button" id="gc-button-yes-two">&#10003;</button>
+												<button class="gc-button" id="gc-button-no-two">X</button>
+											</div>					
+											<p class="gc-question">Ethin (Acetylengas) besitzt eine C-C-Dreifachbindung und weist eine lineare Molekülgeometrie mit einem Bindungswinkel von 180° auf.</p>
+											<p class="gc-progress">2/5</p>
+										</div>
+										<div class="gc-questions hide-gc-questions" id="gc-question-three">
+											<div class="gc-buttons">
+												<button class="gc-button" id="gc-button-yes-three">&#10003;</button>
+												<button class="gc-button" id="gc-button-no-three">X</button>
+											</div>		
+											<p class="gc-question">Die Mitglieder der homologen Reihe der Alkane unterscheiden sich molekular jeweils um eine -CH₂- Gruppe</p>
+											<p class="gc-progress">3/5</p>
+										</div>
+										<div class="gc-questions hide-gc-questions" id="gc-question-four">
+											<div class="gc-buttons">
+												<button class="gc-button" id="gc-button-yes-four">&#10003;</button>
+												<button class="gc-button" id="gc-button-no-four">X</button>
+											</div>
+											<p class="gc-question">Bei der vollständigen Verbrennung von Kohlenwasserstoffen entsteht Kohlenstoffmonoxid.</p>
+											<p class="gc-progress">4/5</p>
+										</div>
+										<div class="gc-questions hide-gc-questions" id="gc-question-five">
+											<div class="gc-buttons">
+												<button class="gc-button" id="gc-button-yes-five">&#10003;</button>
+												<button class="gc-button" id="gc-button-no-five">X</button>
+											</div>
+											<p class="gc-question">Bei tertiaren Alkoholen hängt die funktionelle Gruppe an einem C-Atom mit drei weiteren Kohlenstoffbindungen.</p>
+											<p class="gc-progress">5/5</p>
+										</div>
+										<div class="gc-questions hidden" id="Subject-11-A">
+											„Pssst...Hörst du mich? Die Säure brennt in meinen Adern... Du musst hier weg. Du musst das Labyrinth der Isomere bezwingen. Merk dir das... Dr. Chem liebt Heptan... Heptan. Schnell... bevor du so landest wie ich...“
+										</div>
+									</div>
+								</div>
+							</div>
+							<button class="buttons-south" id="isomere"></button>
+							<div class="quiz quiz-hidden" id="isomere-wall">
+								<img class="touch-quiz" id="cabin-closed" alt="cabin closed" src="images/Cabin.png">
+								<div class="touch-quiz hide-open-quiz" id="cabin-open">
+									<img class="room" alt="cabin open" src="images/Cabin-open.png">
+									<div class="quadrat isomeres" data-match="2" id="isomere-one">2,3-Dimethylbut-2-en</div>
+									<div class="quadrat isomeres" data-match="1" id="isomere-two">2-Methylbuta-1,3-dien</div>
+									<div class="quadrat isomeres" data-match="1" id="isomere-three">Cyclopenten</div>
+									<div class="quadrat isomeres" data-match="2" id="isomere-four">1,2-Dimethylcyclobutan</div>
+									<div class="quadrat isomeres" data-match="3" id="isomere-five">2,2,4-Triethylpentan</div>
+									<div class="ziel-zone iso-contain" data-match="1" id="iso-contain-one">1</div>
+									<div class="ziel-zone iso-contain" data-match="1" id="iso-contain-two">1</div>
+									<div class="ziel-zone iso-contain" data-match="2" id="iso-contain-three">2</div>
+									<div class="ziel-zone iso-contain" data-match="2" id="iso-contain-four">2</div>
+									<div class="ziel-zone iso-contain" data-match="3" id="iso-contain-five"></div>
+									<button class="iso-btns" id="iso-info-btn">i</button>
+									<div class="hidden iso-info" id="iso-info">Finde die gemeinsamen Paare (Isomere). Eins bleibt übrig.</div>
+									<button class="hidden iso-back-btn" id="iso-back-btn">X</button>
+								</div>
+							</div>
+							<img class="room" id="south-wall" src="images\Wall-South.png">
+							<img class="hidden room" id="south-wall-two" src="images/Wall-South-Two.png">
+						</div>
+					</div>
+
+		<!--West Wall-->
+					<div class="wall wall-west">
+						<div class="interactiv-area">
+							<button class="buttons-west" id="power"></button>
+							<div class="quiz quiz-hidden" id="power-wall">
+								<img class="room" src="images/Wall.png">
+								<div class="outlet-panel">
+									<div id="display-power">
+										<p id="power-signal">POWER OFF</p>
+									</div>
+									<div class="lever-panel">
+										<div class="lever-wrapper" id="lever-one">
+											<div class="number-label">
+												<span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
+											</div>
+											<input type="range" min="0" max="9" step="any" value="0" class="vertical-lever">
+										</div>
+										<div class="lever-wrapper" id="lever-two">
+											<div class="number-label">
+												<span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
+											</div>
+											<input type="range" min="0" max="9" step="any" value="0" class="vertical-lever">
+										</div>
+										<div class="lever-wrapper" id="lever-three">
+											<div class="number-label">
+												<span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
+											</div>
+											<input type="range" min="0" max="9" step="any" value="0" class="vertical-lever">
+										</div>
+										<div class="lever-wrapper" id="lever-four">
+											<div class="number-label">
+												<span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span>
+											</div>
+											<input type="range" min="0" max="9" step="any" value="0" class="vertical-lever">
+										</div>
+									</div>
+								</div>
+								<div class="outlet-cabel"></div>
+								
+							</div>
+							<button class="buttons-west" id="computer"></button>
+							<div class="quiz quiz-hidden" id="computer-wall">
+								<img class="room" src="images/Wall.png">
+								<div class="touch-quiz" id="computer-off">
+									<div class="computer-frame"></div>
+									<div class="computer-display-off"></div>
+									<div class="computer-stand"></div>	
+								</div>
+								<div class="touch-quiz hide-open-quiz" id="computer-on">
+									<div class="computer-frame"></div>
+									<div class="computer-stand"></div>
+									<div class="computer-display-on">
+										<div id="molekül-quiz-start">
+											<h2 class="molekül-heading">Dr. Chem</h2>
+											<p class="molekül-instructions">
+												Irgendein amatuerhafter Stümper hat versucht, sich in mein Hauptterminal zu hacken. Lächerlich! Als ob meine Firewall aus feinstem, digitalem Königswasser so leicht zu durchbrechen wäre.
+												Damit diese digitalen Kakerlaken aber endgültig draußen bleiben, habe ich das Sicherheitssystem komplett umgebaut. Wer hier reinwill, muss wahre chemische Größe beweisen und die IUPAC-Regeln beherrschen.</p>
+											<button id="start-molekül-btn">Enter Passwort</button>
+										</div>
+										<div class="molekül-quiz-hidden" id="molekül-quiz">
+											<div class="moleküle" id="molekül-one">
+												<img class="room" src="images/4-Ethyl-2,2,5-trimethylheptan.png">
+											</div>
+											<input type="text" class="minput" id="mname-one">
+											<input type="button" value="Submit" class="msubmit" id="msubmit-one">
+											<p class="mprogress" id="mprogress-one">1/3</p>
+
+											<div class="molekül-hidden moleküle" id="molekül-two">
+												<img class="room" src="images/1,2-Dichlorhexa-1,4-dien.png">
+											</div>
+											<input type="text" class="minput-hidden minput" id="mname-two">
+											<input type="button" value="Submit" class="msubmit-hidden msubmit" id="msubmit-two">
+											<p class="hide-mprogress mprogress" id="mprogress-two">2/3</p>
+
+											<div class="molekül-hidden moleküle" id="molekül-three">
+												<img class="room" src="images/5-Ethyl-3,6-dimethylheptan-2,4-diol.png">
+											</div>
+											<input type="text" class="minput-hidden minput" id="mname-three">
+											<input type="button" value="Submit" class="msubmit-hidden msubmit" id="msubmit-three">
+											<p class="hide-mprogress mprogress" id="mprogress-three">3/3</p>
+											<div class="hidden" id="m-end">
+												<p>19. Januar 2022</p>
+												<p>Die Hacker Ratte & Subject #11-A Status: KATASTROPHAL</p>
+												<p>
+													Gute Nachrichten zuerst: Ich habe den kleinen Wurm gefunden, der sich an meinem Hauptterminal zu schaffen machen wollte!
+													Da er so großes Interesse an meiner Arbeit gezeigt hat, habe ich ihm selbstverständlich die Ehre erwiesen, das neue Testsubjekt meines Versuches zu werden. Eigentlich sollte sie ihn lediglich in einen äußerst kooperativen, biolumineszenten Briefbeschwerer verwandeln.
+													Nun ja. Sagen wir es so: Meine Berechnungen zur Dichte seines Koffeinkonsums waren minimal fehlerhaft.
+													Statt zu erstarren, hat der Kerl angefangen, grün zu funkeln, ist auf die dreifache Größe angeschwollen und hat mit bloßen Händen meinen Titan-Schreibtisch verbogen wie Lakritz.
+													Es war ein taktisches Meisterstück meinerseits, ihn in den Vorratsschrank zu locken. Jetzt sitzt er da drin.
+													Fazit: Der Schrank bleibt vorerst zu.
+												</p>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							<img class="hidde room" id="west-wall-two" src="images/Wall-West-Two.png">
+							<img class="room" id="west-wall" src="images\Wall-West.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hidden room-container" id="end-scene">
+			<img class="room" src="images/Scene5.png">
+			<p class="end-text">To be continued</p>
+		</div>
+	</div>
+	
+	<div id="rules-screen" class="hidden">
+		<h2 class="title-two">Rules</h2>
+		<button class="back-btn">X</button>
+	</div>
+	
+	<div id="settings-screen" class="hidden">
+		<h2 class="title-two">Settings</h2>
+		<button class="back-btn">X</button>
+	</div>
+	
+	</body>
+</html>
